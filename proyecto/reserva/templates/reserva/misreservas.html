@@ -1,0 +1,47 @@
+{% extends 'app/base.html' %}
+    
+
+    {% load static %}
+
+    {% block content %}
+
+    <head>
+        <link rel="stylesheet" href="{% static 'reserva/css/misreservas.css' %}">
+        
+    </head>
+
+
+    <main>
+    <div class="titulo"><h1>Mis Reservas</h1></div>
+
+
+
+    <div class="contenido">
+        <div class="filtro">
+
+                <p><label for="fecha">Fecha:<input type="date" id="fecha" onchange="cambio()"> </label></p>
+                
+                <p><label for="eventro">Descripcion: 
+                <select name="evento" id="evento" onchange="cambio()">
+                    <option value="">Eventos</option>
+                    <option value="examen">Examen</option>
+                    <option value="otro">Otro</option>
+                </select>
+                </label></p>
+
+                <div id="contador" class="contador"></div>
+    
+        </div>
+    </div>
+
+    <p id="staff" class="{{user.id}}" style="display:none;">{{user.is_staff}}</p>
+    
+    <div id="error" style="display:none"><p>No hay reservas para mostrar</p></div>
+    
+    <div id="informacion"></div>
+    
+    </main>
+
+    <script src="{% static 'reserva/javascript/misreservas.js' %}"></script>
+
+    {% endblock content %}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+{% load static %}
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="{% static 'app/css/base.css' %}">
+    <title>I.E.S - RafaelAlberti</title>
+    {% comment %} JQUEY {% endcomment %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    {% comment %} FONT AWESOME {% endcomment %}
+    <script src="https://kit.fontawesome.com/7cc1d6c564.js" crossorigin="anonymous"></script>
+    {% comment %} ICONOS CON ANIMACION {% endcomment %}
+    <script src="https://cdn.lordicon.com/libs/frhvbuzj/lord-icon-2.0.2.js"></script>
+
+
+</head>
+<body>
+    <header>
+        <div class="normal">
+            <div class="icono_menu"><i class="fas fa-bars">
+                <div class="oculto" style="z-index:900;">
+                    <a href="convivencia.html"><p>Convivencia</p></a>
+                    <a href="{% url 'aulas' %}"><p>Reserva de aulas</p></a>
+                </div>
+            </i></div>
+
+
+<div id="prueba">
+
+                {% if user.is_staff %}
+                    <img id="superuser" src="{% static 'app/img/engranajes.svg'%}" alt="Imagen que indica que el usuario es administrador"/>
+
+                {% endif%}
+            <div class="fotoperfil">
+                
+                <div class="circular"><img  src="/img/{{user.profesor.image}}" alt="foto del perfil del profesor"/>
+                </div>  
+                <div class="Perfil-menu-oculto" id="Perfil-menu-oculto2" style="z-index:900;">
+                    <a href="{% url 'logout' %}"><p>Cerrar Sesion</p></a>
+                </div>
+            </div>
+    
+</div>
+
+
+        </div>
+    </header>
+
+{% comment %} Contenido modificable {% endcomment %}
+
+{% block content %}
+
+
+ {% endblock %}
+    
+    <footer>
+        Moodle de:<a href="https://iesrafaelalberti.es"> Ies RafaelAlberti  </a> Creada por Sergio Moreno Hedrera
+    </footer>
+</body>
+</html>

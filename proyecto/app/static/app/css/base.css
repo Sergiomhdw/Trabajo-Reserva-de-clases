@@ -1,0 +1,129 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body{
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+main{
+    padding-bottom: 60px;
+}
+
+/*CONFIGURACION DEL HEADER*/
+.normal{
+    display: flex;
+    justify-content:space-between;
+    background-color: rgb(186, 28, 26);
+    align-items: center;
+    
+}
+.normal>div{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+            /* MENU PRINCIPAL OCULTO */
+            i{
+                font-size: 54px;
+                color: white;
+            }
+            i:hover .oculto{
+                display: block;
+                visibility:visible;
+                opacity:1;
+
+            }
+            .oculto{
+                font-family: 'Poppins', sans-serif;
+                padding-top: 10px;
+                padding-left: 10px;
+                font-size: 20px;
+                visibility:hidden;
+                opacity:0;
+                left: 0px;
+                width: 250px;
+                min-width: 250px;
+                position: absolute;
+                background-color: rgba(186, 29, 26, 0.75);
+                transition:visibility 0.3s linear,opacity 0.3s linear;
+
+            }
+            .oculto>a{
+                text-decoration: none;
+                color:white;
+            }
+            /* ///////////////////////////////////////////////////// */
+
+            /* MENU DEL USUARIO OCULTO */
+
+            .fotoperfil{
+                margin-top: 1%;
+                margin-bottom: 1%;
+            }
+
+            .circular{
+                position: relative;
+                width: 60px;
+                height: 60px;
+                overflow: hidden;
+                border-radius: 50%;
+            }
+            
+            .circular>img {
+                width: 100%;
+                height: auto;
+            }
+            #superuser{
+                width: 40px;
+                margin-right:15px;
+            }
+
+            .fotoperfil:hover .Perfil-menu-oculto{
+                display: block;
+                visibility:visible;
+                opacity:1;
+            }
+
+            .Perfil-menu-oculto{
+                padding-top: 10px;
+                padding-left: 10px;
+                font-size: 20px;
+                color: white;
+                visibility:hidden;
+                opacity:0;
+                right: 0px;
+                min-width: 150px;
+                position: absolute;
+                background-color: rgba(186, 29, 26, 0.75);
+                transition:visibility 0.3s linear,opacity 0.3s linear;
+                
+            }
+            .Perfil-menu-oculto>a{
+                color: white;
+                text-decoration: none;
+            }
+
+            /* ///////////////////////////////////////////////////// */
+
+            footer{
+                padding-top: 10px;
+                padding-left: 10px;
+                color: white;
+                background-color: rgba(186, 29, 26);
+                height: 76px;
+            }
+
+            #prueba{
+                display: flex;
+                padding-top: 15px;
+                padding-bottom: 15px;
+            }
+
+
+            @media (max-width: 900px)  {
+                
+                  i{
+                    font-size: 40px;
+                    color: white;
+                }
+            }

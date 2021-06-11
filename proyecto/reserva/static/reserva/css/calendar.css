@@ -1,0 +1,104 @@
+
+
+.calendar {
+  width: 75%;
+  margin-left:10%;
+  margin-right:3%;
+  padding: .2em 1em;
+  padding-top: 50px;
+  /* border:solid 2px rgb(186, 28, 26); */
+  transition: width 1s;
+  transition: margin-left 1s;
+  max-height: 400px;
+  position:sticky;
+  top:80px;
+  display:inline-block;
+  }
+  
+  .calendar__info {
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 1.2em;
+    text-transform: uppercase; }
+  .calendar__prev, .calendar__next {
+    
+    color: rgb(186, 28, 26);
+    cursor: pointer;
+    font-size: 1.3em; }
+  .calendar__prev {
+    margin-right: auto;
+   }
+    
+  .calendar__next {
+    margin-left: auto; }
+  .calendar__week, .calendar__dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 10px; }
+  .calendar__week{
+    border-bottom: solid 0.5px rgb(65, 65, 65, 0.5);
+  }
+
+  #calendar__week2{
+      border-bottom: solid 0.5px rgb(65, 65, 65, 0.5);
+      display: none;
+  }
+  .calendar__month, .calendar__year {
+    padding: .5em 0.5em;
+    font-size: 2em;
+    font-weight: 800;
+    }
+  .calendar__item {
+    text-align: center;
+    line-height: 2;
+
+  }
+  .calendar__last-days {
+    opacity: .3; }
+    
+  .calendar__dates>div {
+    Font-weight:800 ;
+  }
+  
+
+  .calendar__dates>div:hover {
+    background-color: rgba(255, 0, 0, 0.12);  
+  }
+
+
+@media (max-width: 925px)  {
+  #calendar__week1{
+    display: none;
+  }
+  #calendar__week2{
+    display: grid;
+  }
+}
+
+@media (max-width: 750px)  {
+ .calendario{
+   display: flex;
+   flex-wrap: wrap;
+   /* flex-direction: column; */
+ }
+ .calendar{
+  padding-top: 0px;
+   position: relative;
+   margin:0px;
+   width: 100%;
+ }
+ #formulario{
+   width: 100%;
+ }
+  
+}
+@media (max-width: 450px)  {
+  .calendar__month, .calendar__year {
+    padding: .5em 0.5em;
+    font-size: 1em;
+    font-weight: 800;
+    }
+   
+ }

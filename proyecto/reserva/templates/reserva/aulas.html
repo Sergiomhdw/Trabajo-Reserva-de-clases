@@ -1,0 +1,36 @@
+
+    {% extends 'app/base.html' %}
+    
+
+    {% load static %}
+
+    {% block content %}
+    
+
+
+<head>
+    <link rel="stylesheet" href="{% static 'reserva/css/aulas.css' %}">
+    <script src="{% static 'reserva/javascript/extensionmenu.js' %}"></script>
+
+</head>
+
+
+
+
+<main>
+        <h1>Aulas para reservar</h1>
+
+    
+         <div class="todas-aulas">
+        
+            <div class="grid-container">
+            {% for clase in clases  %}
+                <div class="grid-item"><div>{{clase.name}}</div><a href="un_aula/{{clase.pk}}"><img src="{{clase.image.url}}" alt="Una fotografia del aula"></a></div>
+            {% endfor %}
+            </div>
+        </div> 
+    
+    </main>
+    
+
+{% endblock content %}

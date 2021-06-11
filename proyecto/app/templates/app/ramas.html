@@ -1,0 +1,19 @@
+    {% extends 'app/base.html' %}
+    
+
+    {% load static %}
+
+    {% block content %}
+    <head>
+        <link rel="stylesheet" href="{% static 'app/css/ramas.css' %}">
+    </head>
+    <main>
+        <div class="contenido">
+
+            <div class="grid-item"><div class="imagen"><a href="convivencia.html"><img src="{% static 'app/img/entrada_ies.jpg'%}" alt=""><div class="encima">Temas de convivencia</div></a></div></div>
+            <div class="grid-item"><div class="imagen"><a href="{% url 'aulas' %}"><img src="{% static 'app/img/entrada_ies.jpg'%}" alt=""><div class="encima">Reservar un aula</div></a></div></div>
+
+          </div>
+    </main>
+
+{% endblock content %}

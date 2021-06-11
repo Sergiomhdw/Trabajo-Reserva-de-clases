@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    {% load static %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I.E.S - RafaelAlberti</title>
+    <link rel="stylesheet" href="{% static 'app/css/login.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% comment %} JQUEY {% endcomment %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    {% comment %} LORDICONS {% endcomment %}
+    <script src="https://cdn.lordicon.com/libs/frhvbuzj/lord-icon-2.0.2.js"></script>
+
+
+</head>
+<body>
+    <header>
+        <div class="cabecera">
+            <a href="https://iesrafaelalberti.es"><img src="{% static 'app/img/logosimbolo.png' %}" alt="Logo del centro IES RafaelAlberti"></a>
+        </div>
+    </header>
+    <main>
+        <div class="login">
+            <div class="titulo">
+                <h1>INICIO DE SESIÓN</h1>
+            </div>
+
+            {% if form.errors %}
+            <p class="error"><b>DATOS INCORRECTOS</b></p>
+            {% endif %}         
+
+            <div class="registro">
+                <form method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <label for="username">Nombre:
+                <p><input type="text" id="username" name="username"></p>
+                </label>
+                
+                <label for="password">Contraseña:
+                <p><input type="password" id="password" name="password">
+                
+                <button type="button" onclick="contra()"><lord-icon src="https://cdn.lordicon.com/tyounuzx.json" trigger="loop-on-hover" colors="primary:#121331,secondary:#911710" stroke="100" style="width:30px;hight:30px;"> </lord-icon> </button>
+                <input type="hidden" name="next" value="{{ next }}">
+                </p>    
+                </label>
+                <div class="enviar">
+                <p><input type="submit" value="Entrar"></p>
+                </div>
+                </form>
+                
+            </div>
+            
+            
+        </div>
+    </main>
+    <script>
+        function contra(){
+            var tipo = document.getElementById("password");
+            if(tipo.type == "password"){tipo.type = "text";}else{tipo.type = "password";}}
+      </script>
+</body>
+
+
+</html>

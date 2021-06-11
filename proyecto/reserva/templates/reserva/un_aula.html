@@ -1,0 +1,120 @@
+    {% extends 'app/base.html' %}
+
+    {% load static %}
+
+    {% block content %}
+    
+<head>
+        <link rel="stylesheet" href="{% static 'reserva/css/un_aula.css' %}">
+        <link rel="stylesheet" href="{% static 'reserva/css/calendar.css' %}">
+        <script src="{% static 'reserva/javascript/calendargenerate.js' %}"></script>
+        <script src="{% static 'reserva/javascript/extensionmenu.js' %}"></script>
+
+</head>
+
+
+    
+    <main>
+      
+        
+        
+        
+            
+                <div class="foto_aula" style="background-image: url('{{clase.image2.url}}')">
+                
+                <h1>{{clase.name}}</h1>
+                {% comment %} <img src="{{clase.image2.url}}" alt="foto de la clase"><div class="triangulo"></div> {% endcomment %}
+                </div>
+
+            
+
+            {% if msg %}
+                <div id="aviso">{{msg}}</div>
+            {% endif %}
+
+        
+        <div class="calendario">
+			<div class="calendar" id="calendar">
+			    <div class="calendar__info">
+			        <div class="calendar__prev" id="prev-month">&#9664;</div>
+			        <div class="calendar__month" id="month"></div>
+			        <div class="calendar__year" id="year"></div>
+			        <div class="calendar__next" id="next-month">&#9654;</div>
+			    </div>
+			
+			    <div class="calendar__week" id="calendar__week1">
+			        <div class="calendar__day calendar__item">Lunes</div>
+			        <div class="calendar__day calendar__item">Martes</div>
+			        <div class="calendar__day calendar__item">Miercoles</div>
+			        <div class="calendar__day calendar__item">Jueves</div>
+			        <div class="calendar__day calendar__item">Viernes</div>
+			        <div class="calendar__day calendar__item">Sabado</div>
+			        <div class="calendar__day calendar__item">Domingo</div>
+			    </div>
+
+                <div class="calendar__week" id="calendar__week2">
+			        <div class="calendar__day calendar__item">L</div>
+			        <div class="calendar__day calendar__item">M</div>
+			        <div class="calendar__day calendar__item">Mi</div>
+			        <div class="calendar__day calendar__item">J</div>
+			        <div class="calendar__day calendar__item">V</div>
+			        <div class="calendar__day calendar__item">S</div>
+			        <div class="calendar__day calendar__item">D</div>
+			    </div>
+			
+			    <div class="calendar__dates" id="dates"></div>
+			</div>
+			
+			<div id="formulario" style="display:none">
+                <h2>Reservas <lord-icon
+                    src="https://cdn.lordicon.com/puvaffet.json"
+                    trigger="morph-two-way"
+                    colors="primary:#000000,secondary:#c71f16"
+                    stroke="100"
+                    style="width:40px;height:40px">
+                </lord-icon></h2>
+                <div class="eventos">
+                    <span id="profere"></span>
+                </div>
+
+            <form title="formulario para reservar un aula" method="post" action="{% url 'un_aula' clase.id %}">
+                {% csrf_token %}
+                
+                <h3>Formulario</h3>
+                
+                <label for="fdiamuetra">Dia seleccionado:</label>
+                <p><input id="fdiamuetra" name="fdiamuetra" type="text" disabled required></p>
+                <input id="fdia" name="fdia" type="text" hidden required>
+                
+                {% if mensaje %}
+                    <p>RESERVA</p>
+                {% endif %}
+
+                <p>{{formulario.horainicio.label_tag}}
+                {{formulario.horainicio}}
+
+                <p>{{formulario.horafinal.label_tag}}
+                {{formulario.horafinal}}</p>
+                
+                <p>{{formulario.descripcion.label_tag}}
+                {{formulario.descripcion}}</p>
+
+                <p>{{formulario.alumnos.label_tag}}/ Max alumnos: {{clase.capacity}}</p>
+                {{formulario.alumnos}}
+
+                <p>{{formulario.cursos.label_tag}}
+                {{formulario.cursos}}</p>
+                
+                
+              <button type="submit" id="enviar">Enviar</button>
+            </form>
+
+
+
+
+			</div>
+			
+        </div>
+    </main>
+{% endblock content %}
+
