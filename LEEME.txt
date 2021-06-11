@@ -1,0 +1,4 @@
+El archivo copy.database hay que cambiarle el nombre al de .database
+Lo he puesto en la documentación pero por si acaso pongo estas instrucción
+
+Si no usamos este .database obviamente creara una vacía.
